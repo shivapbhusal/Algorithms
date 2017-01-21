@@ -1,3 +1,4 @@
+/* A Java Program to find a secret number between 1 to n*/
 package com.algo.practice;
 
 public class SecretNumberFinder {
