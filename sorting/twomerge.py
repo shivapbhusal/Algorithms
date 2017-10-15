@@ -14,8 +14,8 @@ def merge(num_list, start, midpoint, end):# Merge procedure
     B.append(sys.maxsize)
     C.append(sys.maxsize)
 
-    i=1 
-    j=1
+    i=0 
+    j=0
 
     for k in range(start,end):
         if B[i]<=C[j]:
@@ -45,6 +45,7 @@ for lines in fin:    # Read numbers from the file and create an unsorted list
 
 n=len(num_list)
 merge_sort(num_list,0,len(num_list)-1)
+print(num_list)
 
 
 
