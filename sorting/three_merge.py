@@ -26,7 +26,7 @@ def merge_proc(num_list, start,q1, q2,end):# Merge procedure
     j=0
     k=0
 
-    for l in range(start,end):
+    for l in range(start,end+1):
         if B[i]<=C[j] and B[i]<=D[k]:
             num_list[l]=B[i]
             i=i+1
@@ -40,10 +40,8 @@ def merge_proc(num_list, start,q1, q2,end):# Merge procedure
 
 def three_merge_sort(num_list, start,end): # Merge  sort function
     if (end-start)<2:
-        if (end-start)==0:
-            return
-        else:
-            if num_list[start]>num_list[end]:
+        if (end-start)!=0:
+            if num_list[end]<num_list[start]:
                 temp=num_list[start]
                 num_list[start]=num_list[end]
                 num_list[end]=temp
@@ -51,6 +49,7 @@ def three_merge_sort(num_list, start,end): # Merge  sort function
     else:
         q1=start+int((end-start)/3)
         q2=start+int(2*(end-start)/3)
+        three_merge_sort(num_list,start,q1)
         three_merge_sort(num_list,q1+1,q2)
         three_merge_sort(num_list,q2+1,end)
         merge_proc(num_list,start,q1,q2,end)
@@ -64,9 +63,9 @@ for lines in fin:    # Read numbers from the file and create an unsorted list
     num_list.append(lines)
 
 n=len(num_list)
-three_merge_sort(num_list,0,len(num_list)-1)
-print(num_list)
+three_merge_sort(num_list,0,n-1)
 
-
+for numbers in num_list:
+    print(numbers)
 
 
