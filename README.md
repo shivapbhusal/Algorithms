@@ -1,5 +1,12 @@
 # Python Implementation of algorithms from CLRS 
 
+## Basic Data Structures 
+* Stack 
+* Queues 
+* Linked Lists 
+* Binary Trees 
+* Hash Tables 
+
 ## Sorting Algorithms  
 * Selection sort  
 * Quick sort 
