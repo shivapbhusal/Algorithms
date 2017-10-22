@@ -35,8 +35,7 @@ def merge_proc(num_list, start,q1, q2,q3,end):# Merge procedure
 
     for i in range (0,len(nested_list)):
         for j in range(0,len(nested_list)):
-            
-
+            nested_list[0][j]
 
     for m in range(start,end+1):
         if B[i]<=C[j] and B[i]<=D[k] and B[i]<=E[l]:

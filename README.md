@@ -1,9 +1,10 @@
 # Python Implementation of algorithms from CLRS 
 
 ## Sorting Algorithms  
-* Selection sort  
+* Selection sort
 * Quick sort 
 * Two way merge sort
-* Three way merge sort 
+* Three way merge sort
+* Four way merge sort
 * Heap sort 
 * Radix sort
