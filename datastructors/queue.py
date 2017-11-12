@@ -1,6 +1,6 @@
 # A simple python implementation of Queue
 
-class Queue:   # Creation of a stack class 
+class Queue:   # Creation of a Queue class 
 
     def __init__(self): # constructor that creates myStack, an empty list. 
         self.myqueue=[]
