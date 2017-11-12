@@ -4,20 +4,20 @@ import sys as sys
 
 def bottom_up(price,n):
 	r=[]
-	s=[]
-	r.append([0])
+	r.append(0)
 	for j in range(1,n):
 		q=-sys.maxsize
 		for i in range(1,j+1):
-			if q< price[i]+r[j-i]:
+			if q<price[i]+r[j-i]:
 				q=price[i]+r[j-i]
-				s[j]=i
-		r[j]=q
+		r.append(q)
+
 	return r
 
 fin=open('data_rodcutting.txt') # Open the file
 price=[]
 
+price.append(0)
 for lines in fin:    # Read numbers from the file and create an unsorted list 
     lines=int(lines)
     price.append(lines)
