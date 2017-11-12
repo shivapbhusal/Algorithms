@@ -15,3 +15,12 @@
 * Four way merge sort
 * Heap sort 
 * Radix sort
+
+## Dynamic Programming 
+* Rod Cutting 
+* Matrix chain multiplication 
+* Knap Sack problem 
+
+## Greedy Algorithms 
+
+## Graph Problems 
