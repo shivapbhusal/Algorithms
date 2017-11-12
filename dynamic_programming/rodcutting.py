@@ -1,23 +1,31 @@
-# Python implementation of selection sort 
+# Python implementation of Rodcutting dynamic programming 
 
-def selection(num_list, size): # Selection sort function
-    for i in range(0,size-1):
-        for j in range(i,size-1):
-            if num_list[j]<num_list[i]: # Swap if num_list[j] is less than num_list[i]
-                temp=num_list[i]
-                num_list[i]=num_list[j]
-                num_list[j]=temp
+import sys as sys
 
-fin=open('data.txt') # Open the file
-num_list=[]
+def bottom_up(price,n):
+	r=[]
+	s=[]
+	r.append([0])
+	for j in range(1,n):
+		q=-sys.maxsize
+		for i in range(1,j+1):
+			if q< price[i]+r[j-i]:
+				q=price[i]+r[j-i]
+				s[j]=i
+		r[j]=q
+	return r
+
+fin=open('data_rodcutting.txt') # Open the file
+price=[]
 
 for lines in fin:    # Read numbers from the file and create an unsorted list 
     lines=int(lines)
-    num_list.append(lines)
+    price.append(lines)
 
-n=len(num_list)
-selection(num_list,n)
-print(num_list)
+rev_list=bottom_up(price, len(price))
+
+for revenue in rev_list:
+	print(revenue)
 
 
 
