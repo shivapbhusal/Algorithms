@@ -21,7 +21,7 @@ class Stack:
     def size(self):
         return len(self.mystack)
 
-    def checkTop(self):
+    def getTop(self):
     	return self.mystack[len(self.mystack)-1]
 
 class Queue:
@@ -41,6 +41,17 @@ class Queue:
     def size(self):
         return len(self.myqueue)
 
+def checkPrecedence(op1, op2):
+	orderOps=['-','+','*','/']
+	prec1=orderOps.index(op1)
+	prec2=orderOps.index(op2)
+	if prec1>prec2:
+		return 1
+	elif prec1==prec2:
+		return 0
+	else:
+		return -1
+
 inputString="2+4+5+10"
 outputQueue=Queue()
 operatorStack=Stack()
@@ -48,12 +59,18 @@ for tokens in inputString:
     if tokens.isnumeric():
     	outputQueue.enqueue(tokens)
     elif tokens in ['*','/','+','-']:
-    	'''check whether the operator in operator stack is of higher precedence
-    	'''
+    	if operatorStack.size!=0:
+    		while checkPrecedence(operatorStack.getTop(),tokens)==1:
+    			outputQueue.enqueue(operatorStack.pop())
     	operatorStack.push(tokens)
     elif tokens=='(':
     	operatorStack.push(tokens)
     elif tokens==')':
-    	operatorStack.push(tokens)
+    	while (operatorStack.getTop()!=')'):
+    		outputQueue.enqueue(operatorStack.pop())
+    	operatorStack.pop('(')
+
+while operatorStack.size():
+	outputQueue.enqueue(operatorStack.pop())
 
 
