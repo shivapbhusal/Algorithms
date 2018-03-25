@@ -1,4 +1,6 @@
-# Python Implementation of counting sort 
+'''
+Python Implementation of Counting Sort
+'''
 
 import sys as sys 
 fileName=sys.argv[1]
@@ -9,7 +11,7 @@ rawData=[]
 countArray=[]
 sortedArray=[]
 
-for i  in range(19):
+for i  in range(19): # Find the maximum no to be sorted 
     countArray.append(0)
 
 for lines in contents:
@@ -17,9 +19,6 @@ for lines in contents:
 
 for nums in rawData:
     countArray[nums]=countArray[nums]+1
-
-print(rawData)
-print(countArray)
 
 sumPrev=0; 
 
@@ -35,5 +34,3 @@ for nums in rawData:
     countArray[nums]-=1 
 
 print(sortedArray)
-
-    
