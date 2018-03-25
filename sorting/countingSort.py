@@ -9,9 +9,6 @@ rawData=[]
 countArray=[]
 sortedArray=[]
 
-for i in range(len(rawData)):
-    sortedArray.append(0)
-
 for i  in range(19):
     countArray.append(0)
 
@@ -21,6 +18,7 @@ for lines in contents:
 for nums in rawData:
     countArray[nums]=countArray[nums]+1
 
+print(rawData)
 print(countArray)
 
 sumPrev=0; 
@@ -29,10 +27,11 @@ for i in range(len(countArray)):
     sumPrev=sumPrev+countArray[i]
     countArray[i]=sumPrev
 
-print(countArray)
+for i in range(len(rawData)):
+    sortedArray.append(0)
 
 for nums in rawData:
-    sortedArray[nums]=nums
+    sortedArray[countArray[nums]-1]=nums
     countArray[nums]-=1 
 
 print(sortedArray)
