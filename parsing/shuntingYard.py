@@ -46,7 +46,7 @@ class Queue:
     		print(items)
 
 def checkPrecedence(op1, op2):
-	orderOps=['-','+','*','/']
+	orderOps=['/','*','+','-']
 	prec1=orderOps.index(op1)
 	prec2=orderOps.index(op2)
 	if prec1>prec2:
@@ -57,12 +57,13 @@ def checkPrecedence(op1, op2):
 		return -1
 
 inputString="1/2+4+5*9"
+print(inputString)
 outputQueue=Queue()
 operatorStack=Stack()
 for tokens in inputString:
     if tokens.isnumeric():
     	outputQueue.enqueue(tokens)
-    elif tokens in ['*','/','+','-']:
+    elif tokens in ['-','+','*','/']:
     	if not operatorStack.is_empty:
     		while checkPrecedence(operatorStack.getTop(),tokens)==1:
     			outputQueue.enqueue(operatorStack.pop())
