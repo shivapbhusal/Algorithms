@@ -10,37 +10,42 @@ class Node:
         self.parent=None
 
 class BinaryTree:
-    def __init__(self,root):
-        self.root=None
+    def __init__(self):
+        self.root=Node(None)
 
-    def addNode(self, data):
-        newNode=Node(data)
+    def addNode(self, x):
+        newNode=Node(x)
+        current=self.root
 
         if self.root==None:
-            root=newNode
+            self.root=newNode
         else:
-            current=root
-            while(current!=None):
-                if current.data>data:
-                    current=current.right
-                else:
+            while(current.data!=None):
+                if x<current.data:
                     current=current.left
+                else:
+                    current=current.right
 
-            if current.parent<data:
-                current.right=newNode
-            else:
+            newNode.parent=current
+            if x<current.data:
                 current.left=newNode
+                #print(current.data)
+            else:
+                current.right=newNode
+                #print(current.data)
 
-    def traverse(self):
-        current=self.root
-        print(current.data)
+    def traverse(self,current):
+        if current!=None:
+            self.traverse(current.left)
+            print(current.data)
+            self.traverse(current.right)
 
-b=BinaryTree(None)
+b=BinaryTree()
 
-for i in range(10):
+for i in [5,6,0,10,8,2]:
     b.addNode(i)
 
-print(b.root)
+b.traverse(b.root)
 
 
 
