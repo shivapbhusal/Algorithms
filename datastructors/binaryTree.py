@@ -11,28 +11,29 @@ class Node:
 
 class BinaryTree:
     def __init__(self):
-        self.root=Node(None)
+        self.root=None
 
-    def addNode(self, x):
-        newNode=Node(x)
-        current=self.root
+    def addNode(self, z):
+        y=None 
+        x=self.root
+        newNode=Node(z)
 
-        if self.root==None:
-            self.root=newNode
-        else:
-            while(current.data!=None):
-                if x<current.data:
-                    current=current.left
-                else:
-                    current=current.right
-
-            newNode.parent=current
-            if x<current.data:
-                current.left=newNode
-                #print(current.data)
+        while x is not None:
+            y=x
+            if z<x.data:
+                x=x.left
             else:
-                current.right=newNode
-                #print(current.data)
+                x=x.right
+        newNode.parent=y
+
+        if y is None:
+            self.root=newNode
+            print("Root added")
+        else:
+            if z<y.data:
+                y.left=newNode
+            else:
+                y.right=newNode
 
     def traverse(self,current):
         if current!=None:
@@ -43,7 +44,8 @@ class BinaryTree:
 b=BinaryTree()
 
 for i in [5,6,0,10,8,2]:
-    b.addNode(i)
+    b.addNode(int(i))
+    print(str(i)+ "added")
 
 b.traverse(b.root)
 
