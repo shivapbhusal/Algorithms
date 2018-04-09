@@ -14,6 +14,9 @@ class BinaryTree:
         self.root=None
 
     def addNode(self, z):
+        '''
+        Adds Node 
+        '''
         y=None 
         x=self.root
         newNode=Node(z)
