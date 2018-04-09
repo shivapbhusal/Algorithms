@@ -7,29 +7,40 @@ class Node:
         self.data=data
         self.left=None
         self.right=None
-
-    def updateLeft(self, left):
-        self.left=left
-
-    def upDateRight(self, right):
-        self.right=right
-    
-    def updateParent(self, parent):
-        self.parent=parent
+        self.parent=None
 
 class BinaryTree:
     def __init__(self,root):
-        self.root=root
+        self.root=None
 
-    def addNode(self, newNode):
-        if root.right==None and root.left==None:
-            if newNode.data>root.data:
-                root.left=newNode
-            else:
-                root.right=newNode
+    def addNode(self, data):
+        newNode=Node(data)
+
+        if self.root==None:
+            root=newNode
         else:
             current=root
+            while(current!=None):
+                if current.data>data:
+                    current=current.right
+                else:
+                    current=current.left
+
+            if current.parent<data:
+                current.right=newNode
+            else:
+                current.left=newNode
+
+    def traverse(self):
+        current=self.root
+        print(current.data)
+
+b=BinaryTree(None)
+
+for i in range(10):
+    b.addNode(i)
+
+print(b.root)
 
 
-b=Node(1)
-#print(b.root)
+
