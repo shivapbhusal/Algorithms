@@ -44,6 +44,23 @@ class BinaryTree:
             print(current.data)
             self.traverse(current.right)
 
+    def findSuccessor(x):
+        if x.right is not None:
+            return self.miniumum(x.right)
+        y=x.parent
+
+        while(y is not None and x==y.right):
+            x=y
+            y=y.parent
+
+        return y
+
+    def minimum(x):
+        current=x
+        while current.left is not None:
+            current=current.left
+        return current
+
 b=BinaryTree()
 
 for i in [5,6,0,10,8,2]:
