@@ -12,15 +12,16 @@ public class HashMapTest
 		{
 			i=i*2; 
 			map.put(i,0); 
+			map.put(null,0); 
 		}
 
-		for (int i=0; i<=100;i++)
+		for (int j=0; j<=100;j++)
 		{
-			if (map.containsKey(i)){
-			System.out.println("Map contains "+i); 
+			if (map.containsKey(j)){
+			System.out.println("Map contains "+j); 
 			}
 			else {
-				System.out.println("Map doesn't contain "+i); 
+				System.out.println("Map doesn't contain "+j); 
 			}
 
 
