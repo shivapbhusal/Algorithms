@@ -1,4 +1,8 @@
-# Python implementation of selection sort 
+'''
+Python implementation of selection sort
+Complexity: N2 
+
+'''
 
 def selection(num_list, size): # Selection sort function
     for i in range(0,size-1):
