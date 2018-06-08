@@ -1,8 +1,9 @@
 
-# Python program to generate random numbers taking inputs from users. 
-# Author : Shiva Bhusal, Bowling Green State University 
-# Example, python generateRandom.py 10 20 50. 
-# Example generates 50 random numbers in between 10 and 20. 
+''' Python program to generate random numbers taking inputs from users. 
+Author : Shiva Bhusal, Bowling Green State University 
+Example, python generateRandom.py 10 20 50. 
+Example generates 50 random numbers in between 10 and 20.
+'''
 
 import sys
 from random import *
